@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit Data to Google Sheet</title>
+</head>
+<body>
+  <h1>Submit your information</h1>
+  <form id="dataForm">
+    <label for="category">Category/Discipline:</label><br>
+    <input type="text" id="category" name="category" required><br>
+    <label for="playerName">Player Name:</label><br>
+    <input type="text" id="playerName" name="playerName" required><br>
+    <label for="clubTeam">Club/Team:</label><br>
+    <input type="text" id="clubTeam" name="clubTeam" required><br>
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob" required><br>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    document.getElementById('dataForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = {
+        category: document.getElementById('category').value,
+        playerName: document.getElementById('playerName').value,
+        clubTeam: document.getElementById('clubTeam').value,
+        dob: document.getElementById('dob').value
+      };
+      fetch('<YOUR_WEB_APP_URL>', {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }).then(response => response.text())
+        .then(responseText => alert(responseText))
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>
