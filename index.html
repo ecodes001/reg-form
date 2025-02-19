@@ -25,7 +25,7 @@
         clubTeam: document.getElementById('clubTeam').value,
         dob: document.getElementById('dob').value
       };
-      fetch('<YOUR_WEB_APP_URL>', {
+      fetch('<https://script.google.com/macros/s/AKfycby7CJtRIFzg6f3xZRSNVUxtnMQ2S2AGdtrG4F4Bv0JXML-pUAItTrJwOQSiQAb0RTXj/exec>', {
         method: 'POST',
         body: JSON.stringify(data)
       }).then(response => response.text())
